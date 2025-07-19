@@ -6,19 +6,24 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements} f
 import Home from './components/Home/Home.jsx'
 import Layout from './Layout.jsx'
 import Contact from "./components/Contact/Contact.jsx";
+import GitHub from "./components/GitHub/GitHub.jsx";
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout/>,
     children: [
-      {
+      { 
         path: "",
         element: <Home />
       },
       {
         path: "contact",
         element: <Contact />
+      },
+      {
+        path: "github",
+        element: <GitHub/>
       }
     ]
   }

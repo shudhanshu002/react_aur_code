@@ -89,3 +89,76 @@ function App() {
   )
 }
 ```
+
+
+# Link:
+- Link is used for basic navigation in React Router.
+- It prevents the page from refreshing and changes the URL without a full reload.
+- It does not apply any styles automatically
+
+
+# NavLink:
+- NavLink is similar to Link, but it allows you to style the active link based on the current route.
+- It applies an active class or inline styles when the link matches the current URL
+
+
+# What is React Router?
+- React Router is a library that enables client-side navigation in React applications. It allows users to move between different pages without a full page reload.
+
+# Creating Routes in React Router
+- To define routes, we use react-router-dom. The main tools for route creation are:
+
+1. createBrowserRouter()
+2. RouterProvider
+3. Route
+4. Outlet
+
+
+# Basic route setup
+```js
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Contact from "./Contact";
+
+const router = createBrowserRouter([
+  { path: "/", element: <Home /> },
+  { path: "/about", element: <About /> },
+  { path: "/contact", element: <Contact /> }
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
+);
+```
+
+# Outlet
+``` js
+import { Outlet } from "react-router-dom";
+
+const Layout = () => {
+  return (
+    <div>
+      <header>
+        <h1>My Website</h1>
+        <nav>
+          <a href="/">Home</a> | <a href="/about">About</a> | <a href="/contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <Outlet /> {/* This renders the child component dynamically */}
+      </main>
+
+      <footer>
+        <p>© 2025 My Website</p>
+      </footer>
+    </div>
+  );
+};
+
+export default Layout;
+```
+
